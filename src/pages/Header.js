@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
-import { useHistory } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import user1 from '../images/user1.png'
-
 import { useDispatch, useSelector } from "react-redux";
 import {FaSignOutAlt} from 'react-icons/fa'
 import { setIsLoggedIn } from "../Store/actions/userActions";
@@ -18,17 +16,17 @@ const Header = () => {
     }
     return (
         <React.Fragment>
-            <div className="flex justify-between mx-36 items-center  ">
+            <div className="flex justify-between items-center bg-gray-300 ">
                 <div className=" text-white px-3.5  flex justify-start items-center">
                     
                 </div>
-                <div className="  flex flex-row items-center  h-9 mt-6">
+                <div className="  flex flex-row items-center  h-9 py-8">
                     
                     <div className="relative inline-block text-left">
                         <div>
-                            <button type="button" onClick={() => setshowProfile(!showProfile)} className="inline-flex justify-center w-full " id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            <button type="button" onClick={() => setshowProfile(!showProfile)} className="inline-flex justify-center w-full pr-24" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                 {/* <img src={state?.profilePicture} className="w-10 h-10 rounded-full" alt=""/> */}
-                                <img src={user1} className="w-10 h-10 rounded-full" alt=""/>
+                                <img src={user1} className="w-10 h-10 rounded-full " alt=""/>
                             </button>
                         </div>
                         {
@@ -36,6 +34,10 @@ const Header = () => {
                         <div className="w-screen h-screen fixed top-0 left-0 zIndex-40 " onClick={() => setshowProfile(!showProfile)} />
                         <div className="origin-top-right absolute right-0 mt-2  h-32 w-44  shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none border border-gray-300" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
                             <div className="py-1" role="none">
+
+                            <button className="text-gray-700  hover:bg-red-400 py-3 mt-1.5 w-full text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">
+                                    <NavLink to="/profiledetails" className="text-base font-semibold " >My Profile</NavLink>
+                                </button>
                                
                                   <div className="flex flex-wrap space-x-2 px-3 hover:bg-red-400">
                                       <div className="pl-8 pt-3.5" >

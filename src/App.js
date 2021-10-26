@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import UploadImage from "./components/UploadImage";
 import { meInfo, setIsLoggedIn } from "./Store/actions/userActions";
 import instance from "./services/index";
 import Inputform from './components/Inputform';
 import Auth from "./pages/Authinticate/auth";
 import Header from "./pages/Header";
+import ProfileDetails from "./pages/MyProfile/ProfileDetails";
+
+
+
 
 
 function App() {
@@ -43,12 +48,12 @@ function App() {
             }
             }} />
           <Route path="/inputform" component={Inputform} />
-
-         
-          <Route path="*" component={Auth} />
+          <Route path="/profiledetails" component={ProfileDetails} />         
+          
         </Switch>
 
-      </BrowserRouter>
+    {/* <UploadImage/> */}
+    </BrowserRouter>
     </div>
   );
 }

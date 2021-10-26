@@ -1,14 +1,18 @@
 import axios from 'axios';
-import "./index.css"
+import { useState } from 'react';
+// const [baseURL,setBaseURL]=useState('http://3.85.49.93')
 const instance = axios.create({
   baseURL: 'http://localhost:8081'
+  // baseURL: 'http://192.168.5.51:8081'
+  // baseURL: 'http://18.206.201.109'
+  // baseURL:'http://35.153.180.148/'
 });
 instance.interceptors.request.use(
   config => {
     document.body.classList.add('loading-indicator');
     const token = localStorage.getItem('token');
     if (token) {
-      config.headers['Authorization'] =  token;
+      config.headers['Authorization'] = 'Bearer ' + token;
     }
     // config.headers['Content-Type'] = 'application/json';
     return config;

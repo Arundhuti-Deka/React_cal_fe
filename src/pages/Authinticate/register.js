@@ -10,7 +10,7 @@ const Register = () => {
   const [dynamicErrors, setDynamicErrors] = useState(
     {
       email: "",
-      phone:""      
+      phoneNo:""      
     }
   )
   const history=useHistory();
@@ -18,7 +18,7 @@ const Register = () => {
     console.log("data",values)
     setDynamicErrors({
       email: '',
-      phone:""     
+      phoneNo:""     
     });
     try {
       const res = await instance.post('/user/addUser', {
